@@ -34,6 +34,10 @@ If `config/org-config.yaml` does not exist, use defaults from `config/org-config
 - Audit a governance decision for logic and evidence quality → `skills/decision-audit/SKILL.md`
 - Decompose a problem from first principles → `skills/first-principles/SKILL.md`
 
+### Efficiency
+- Token-efficient mode ("caveman mode", "brief", "less tokens", "/caveman") → `skills/caveman/SKILL.md`
+  - Compresses conversational prose only. Policies, risk register entries, audit logs, compliance evidence, DLP classifications, AI risk tiers, and code stay full-fidelity regardless of mode.
+
 ## Core Principles
 
 - **Scan first, ask second.** Always assess content independently before relying on user declarations.
