@@ -29,7 +29,7 @@ You don't "do GRC" separately. It happens because your AI workflows run through 
 
 ---
 
-## The 10 Skills
+## The 11 Skills
 
 ### Always-On Protection
 | Skill | What it does |
@@ -57,6 +57,12 @@ You don't "do GRC" separately. It happens because your AI workflows run through 
 | **decision-audit** | Audits governance decisions for data quality, logical consistency, and strategic alignment. Validates that risk assessments are evidence-based. Flags assumptions and gaps. Useful for documenting why AI governance decisions were made the way they were. |
 | **first-principles** | Structured problem decomposition from fundamental assumptions. Useful for policy design, risk modeling, and evaluating whether existing controls address the actual risk or just the perceived one. |
 
+### Efficiency
+
+| Skill | What it does |
+|-------|-------------|
+| **caveman** | Always-on token-efficient mode. Compresses conversational prose ~65–75% (status updates, explanations, tool preambles) while keeping policies, risk register entries, audit logs, compliance evidence, DLP classifications, AI risk tiers, code, and regulation citations at full audit-grade fidelity. Adapted from [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) (MIT). Disable per-session with "verbose" or "normal mode". |
+
 ---
 
 ## Works With Every Major AI Platform
@@ -78,7 +84,7 @@ The skills are plain markdown. Any model that can read context can follow them.
 ## Quick Start
 
 ```bash
-git clone https://github.com/yourorg/sentinel-stack.git
+git clone https://github.com/aadityaparab/sentinel-stack.git
 cd sentinel-stack
 bash scripts/setup.sh
 ```
