@@ -69,15 +69,15 @@ Rule of thumb: **if an auditor or regulator might read it, write it full.** If o
 
 ## Activation
 
-Caveman mode turns on when:
-- User says "caveman mode", "brief mode", "terse mode", "less tokens", "/caveman"
-- User explicitly asks to save tokens
-- Long session where context pressure is visible
+**Default: ON for all sentinel-stack sessions.** Per project `CLAUDE.md`, caveman Lite runs on every response unless explicitly disabled.
 
-Caveman mode turns off when:
-- User says "verbose", "normal mode", "full explanation"
-- User asks for a policy, report, risk assessment, or any artifact on the carve-out list (auto-suspend for that output)
-- User is onboarding / first session (readability > compression)
+Stays on across turns — no drift back to verbose after many exchanges.
+
+Turns off only when:
+- User says "verbose", "normal mode", "full explanation", "/verbose"
+- The current output is a carve-out artifact (auto-suspend for that block only — next conversational turn returns to caveman)
+
+Escalates to Full or Ultra only when user explicitly asks ("/caveman full", "ultra brief", etc.).
 
 ---
 
