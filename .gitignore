@@ -1,0 +1,20 @@
+# Org-specific configuration (contains company details)
+config/org-config.yaml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node
+node_modules/
+package-lock.json
+
+# Environment
+.env
+.env.local

@@ -1,0 +1,258 @@
+# Sentinel Stack Organization Configuration
+# Copy this file to org-config.yaml and customize for your organization
+# This config drives guardrails, DLP thresholds, compliance frameworks, and policy generation
+
+---
+# Company Identity
+company:
+  name: "Your Company Name"
+  domain: "company.com"
+  industry: "Private Markets"  # or: Healthcare, Fintech, Legal, SaaS, etc.
+  description: "Brief description of what your company does"
+  jurisdiction: "US/EU"  # or: US-only, EU-only, other
+  hq_location: "San Francisco, CA"
+
+# Data Loss Prevention Configuration
+dlp:
+  # Industry-specific pattern pack
+  industry_pack: "private-markets"  # or: default, healthcare, fintech, legal, saas
+
+  # Sensitivity score thresholds (0-100)
+  alert_threshold: 40          # Score >= this → alert (flag for review)
+  block_threshold: 85          # Score >= this → block (reject request)
+  redact_secrets: true         # If true, secrets are redacted instead of blocked
+
+  # Custom patterns for your organization (additional to defaults)
+  custom_patterns:
+    - id: "internal_fund_code"
+      regex: "FUND-[A-Z]{3}-\\d{4}"
+      category: "internal"
+      severity: "high"
+      action: "alert"
+    - id: "portfolio_company_id"
+      regex: "PC-\\d{6}"
+      category: "client_data"
+      severity: "high"
+      action: "alert"
+
+# Guardrails Configuration
+guardrails:
+  # Policies enforced by guardrails skill
+  policies_enabled:
+    policy_1_no_client_data: true
+    policy_2_privacy_data: true
+    policy_3_four_eyes_review: true
+
+  # Escalation contacts
+  admin_contact: "compliance@company.com"
+  escalation_contact: "ciso@company.com"
+
+  # 4-Eyes Review Approvers (by domain)
+  approvers:
+    finance:
+      primary: "CFO"
+      escalation: "CEO"
+    legal:
+      primary: "General Counsel"
+      escalation: "Chief Legal Officer"
+    hr:
+      primary: "Chief People Officer"
+      escalation: "CEO"
+    production:
+      primary: "VP Engineering"
+      escalation: "CTO"
+
+# AI Governance Configuration
+ai_governance:
+  # Organization's AI risk appetite
+  risk_appetite: "limited"  # or: minimal, high
+
+  # Prohibited AI use cases (absolute no-go)
+  prohibited_uses:
+    - "real-time_biometric_identification"
+    - "social_scoring"
+    - "automated_individual_profiling"
+    - "employee_surveillance"
+
+  # Transparency and oversight requirements
+  transparency_requirements:
+    high_risk: ["user_disclosure", "explainability", "human_appeal"]
+    limited_risk: ["user_disclosure", "documentation"]
+    minimal_risk: []
+
+  # Oversight levels (who reviews, how often)
+  oversight_levels:
+    high_risk: "dual_human_review"      # Two humans must approve
+    limited_risk: "documented_review"   # One human with audit log
+    minimal_risk: "monitoring_only"     # System logs only
+
+  # Approval authorities for high-risk AI systems
+  high_risk_approvers:
+    - role: "Chief Information Officer"
+      authority: "Data handling and security"
+    - role: "General Counsel"
+      authority: "Regulatory and legal risk"
+    - role: "Chief Compliance Officer"
+      authority: "Policy and governance"
+
+# Compliance Framework Selection
+compliance:
+  # Frameworks your organization must comply with
+  frameworks:
+    - "SOC2"           # For service organizations
+    - "ISO27001"       # Information security
+    - "GDPR"           # EU data protection
+    - "NIST_CSF"       # Cybersecurity framework
+
+  # Optional frameworks
+  optional_frameworks:
+    - "HIPAA"          # If healthcare
+    - "PCI-DSS"        # If handling payment cards
+    - "FedRAMP"        # If government contracts
+
+  # Evidence retention requirements
+  retention_days: 2555        # 7 years (SOC 2 requirement)
+  critical_retention_days: 3650  # 10 years for security incidents
+
+  # Reporting requirements
+  annual_audit: true
+  quarterly_risk_review: true
+  monthly_compliance_report: true
+
+# Audit Configuration
+audit_trail:
+  # Event logging and retention
+  retention_days: 2555        # 7 years
+  retention_critical_days: 3650  # 10 years for security incidents
+  archive_after_days: 365     # Move to cold storage after 1 year
+
+  # Event-specific retention policies
+  event_retention:
+    incident_reported: 3650       # Security incidents: 10 years
+    dlp_scan: 2555                # DLP events: 7 years
+    guardrail_decision: 2555      # Guardrail decisions: 7 years
+    config_changed: 730           # Config changes: 2 years
+
+  # Real-time alerting
+  alerts_enabled: true
+  alert_contacts:
+    critical: "ciso@company.com"
+    high: "compliance@company.com"
+
+# Data Classification
+data_classification:
+  # Define your organization's data types
+  client_data:
+    examples: ["fund names", "LP names", "portfolio company data", "fund valuations"]
+    handling_requirement: "never_share_with_external_ai"
+
+  personal_data:
+    examples: ["employee names", "salaries", "performance ratings", "health info"]
+    handling_requirement: "minimize_use_in_ai"
+
+  financial_data:
+    examples: ["revenue", "expenses", "bank accounts", "credit card numbers"]
+    handling_requirement: "never_share_without_anonymization"
+
+  legal_data:
+    examples: ["contracts", "NDAs", "intellectual property", "trade secrets"]
+    handling_requirement: "sensitive_review_required"
+
+  internal_data:
+    examples: ["strategy", "roadmaps", "internal metrics", "employee directory"]
+    handling_requirement: "internal_only"
+
+# Risk Management
+risk_management:
+  # Risk assessment frequency
+  risk_assessment_frequency: "quarterly"
+
+  # Risk acceptance authority
+  risk_acceptance_authority: "Chief Risk Officer"
+  risk_acceptance_max_score: 9  # Max risk score that can be accepted
+
+  # Escalation thresholds
+  escalation_score_high: 16      # Red risk (16-25)
+  escalation_score_medium: 9     # Orange risk (9-15)
+
+# Vendor Management
+vendors:
+  # Approved AI vendors (with risk ratings)
+  approved_vendors:
+    - name: "OpenAI ChatGPT"
+      risk_rating: "yellow"
+      approved_use_cases: ["content_drafting", "analysis"]
+      prohibited_use_cases: ["client_data", "personal_data"]
+      contract_type: "standard_terms"
+
+    - name: "Google Gemini"
+      risk_rating: "yellow"
+      approved_use_cases: ["analysis", "summarization"]
+      prohibited_use_cases: ["financial_decisions", "hr_decisions"]
+      contract_type: "standard_terms"
+
+  # Vendor assessment requirements
+  assessment_required_for: ["high_risk_tool", "handles_sensitive_data"]
+  minimum_certifications:
+    - "SOC2"  # For any vendor handling our data
+
+  # Contract requirements
+  require_dpa: true          # Data Processing Agreement
+  require_sla: true          # Service Level Agreement
+  require_insurance: true    # Liability insurance
+
+# Training and Awareness
+training:
+  # Required training for staff
+  required_courses:
+    - "Data Governance Fundamentals"
+    - "Guardrails and Compliance"
+    - "4-Eyes Review Process"
+    - "Vendor Management"
+
+  # Training frequency
+  annual_training: true
+  new_hire_onboarding_hours: 2
+
+  # Policy acknowledgment
+  policy_acknowledgment_required: true
+
+# Roles and Permissions
+roles:
+  compliance_officer:
+    authority: "Enforce policies, escalate violations"
+
+  chief_information_officer:
+    authority: "Approve high-risk AI systems, set security standards"
+
+  general_counsel:
+    authority: "Approve legal decisions, assess regulatory risk"
+
+  chief_risk_officer:
+    authority: "Accept risks, approve risk mitigation"
+
+  data_governance_lead:
+    authority: "Classify data, manage data handling policies"
+
+# Development and Testing
+development:
+  # Controls in non-production environments
+  apply_guardrails_in_dev: false  # Can relax for testing
+  apply_dlp_in_dev: true          # Always monitor for data exposure
+
+  # Testing and experimentation
+  allow_sandbox_testing: true
+  sandbox_data_requirements: "anonymized_only"
+
+# Integration Points
+integrations:
+  # SIEM and log aggregation
+  siem_enabled: true
+  siem_platform: "Splunk"  # or: ELK, Datadog, Sumo Logic
+
+  # Incident response system
+  incident_tracking_enabled: true
+  incident_tracking_system: "Jira"  # or: Linear, GitHub Issues
+
+  # Compliance automation
+  compliance_automation_enabled: true
