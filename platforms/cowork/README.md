@@ -9,15 +9,22 @@ Sentinel Stack ships as a native Claude plugin. Once installed, all 11 skills ar
 1. Open the Claude Desktop app and switch to the **Cowork** tab
 2. Click **Customize** in the left sidebar
 3. Click **Browse plugins → Add marketplace**
-4. Enter the repository URL:
+4. Enter:
 
    ```text
    https://github.com/aadityaparab/sentinel-stack
    ```
 
-5. Click **Install**
+5. Find **sentinel-stack** in the catalog and click **Install**
 
-All 11 skills load automatically from `.claude-plugin/plugin.json`. No zip download needed.
+All 11 skills load automatically. No zip needed.
+
+Or from the Claude Code CLI:
+
+```bash
+/plugin marketplace add https://github.com/aadityaparab/sentinel-stack
+/plugin install sentinel-stack@sentinel-stack
+```
 
 ### Option 2: Local install
 

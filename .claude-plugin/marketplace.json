@@ -1,0 +1,25 @@
+{
+  "name": "sentinel-stack",
+  "owner": {
+    "name": "Aaditya Parab"
+  },
+  "metadata": {
+    "description": "AI governance toolkit — DLP, guardrails, risk register, compliance evidence, audit trail, and EU AI Act classification."
+  },
+  "plugins": [
+    {
+      "name": "sentinel-stack",
+      "source": "./",
+      "description": "AI governance toolkit — DLP scanning, data guardrails, risk register, compliance evidence, audit trail, and EU AI Act classification embedded in your workflow.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Aaditya Parab"
+      },
+      "homepage": "https://github.com/aadityaparab/sentinel-stack",
+      "repository": "https://github.com/aadityaparab/sentinel-stack",
+      "license": "MIT",
+      "category": "governance",
+      "keywords": ["governance", "compliance", "dlp", "ai-risk", "audit", "guardrails"]
+    }
+  ]
+}
