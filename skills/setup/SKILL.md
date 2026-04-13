@@ -16,7 +16,7 @@ Read the current `config/org-config.yaml`. Extract these current values to use a
 - `company.jurisdiction`
 - `compliance.frameworks`
 - `ai_governance.risk_appetite`
-- `guardrails.escalation_contact`
+- `guardrails.escalation_contact` (also used to set `guardrails.admin_contact` and both `audit_trail.alert_contacts` — all four fields get the same Q6 value)
 
 If the file is missing, use these defaults: name="Your Company", domain="your-company.com", industry="technology", jurisdiction="US", frameworks=["SOC2"], risk_appetite="moderate", escalation="compliance-team@your-company.com".
 
