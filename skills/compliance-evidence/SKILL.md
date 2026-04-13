@@ -1,3 +1,8 @@
+---
+name: compliance-evidence
+description: Compliance artifact generator. Auto-generates audit evidence from guardrail detections, 4-eyes review gates, and DLP scans. Maps control evidence to SOC 2 Type II, ISO 27001, NIST CSF, and GDPR Article 30. Generates evidence packages on demand for auditors and tracks control effectiveness over time. Use for audit preparation, compliance evidence collection, or SOC 2/ISO 27001 artifact generation.
+---
+
 # Compliance Evidence
 
 **Aliases:** compliance evidence, audit evidence, SOC 2 evidence, ISO 27001, compliance artifact, audit preparation, control evidence, compliance documentation

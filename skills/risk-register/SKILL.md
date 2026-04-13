@@ -1,3 +1,8 @@
+---
+name: risk-register
+description: Living risk register manager. Auto-populates and maintains a risk register from guardrail detections (DLP, 4-eyes, behavioral anomalies). Scores risks on a 5x5 likelihood-impact matrix, tracks treatment plans (accept/mitigate/transfer/avoid), generates leadership risk reports, and assesses drift against organizational risk appetite. Use for risk assessments, risk matrix updates, or governance reporting.
+---
+
 # Risk Register
 
 **Aliases:** risk register, risk log, track risks, risk assessment, risk matrix, risk appetite, risk treatment

@@ -18,3 +18,4 @@ package-lock.json
 # Environment
 .env
 .env.local
+.gstack/

@@ -1,3 +1,8 @@
+---
+name: audit-trail
+description: Compliance audit log generator. Creates structured, immutable audit records (JSON-lines format) for guardrail decisions, DLP scans, 4-eyes review workflows, and AI-assisted outputs in regulated categories. Designed for SIEM and GRC platform ingestion with built-in retention governance per GDPR, SOC 2, and HIPAA. Use when you need audit logs, compliance trails, or interaction history.
+---
+
 # Audit Trail
 
 **Skill Name:** audit-trail  

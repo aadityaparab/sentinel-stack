@@ -1,3 +1,8 @@
+---
+name: ai-governance
+description: AI risk classification and governance skill. Classifies AI use cases by EU AI Act risk tier (Unacceptable/High/Limited/Minimal), enforces organizational AI acceptable use policies, determines transparency and human oversight requirements, tracks data lineage for AI-assisted outputs, and generates compliance artifacts for model governance. Use when evaluating AI use cases, building AI workflows, or assessing regulatory compliance.
+---
+
 # AI Governance
 
 **Aliases:** AI usage policy, EU AI Act, AI risk classification, model governance, responsible AI, AI compliance, acceptable use policy for AI, AI risk assessment

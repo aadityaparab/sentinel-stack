@@ -1,3 +1,8 @@
+---
+name: vendor-ai-risk
+description: Third-party AI vendor risk assessment skill. Evaluates AI vendors and tools across five dimensions: security, privacy, AI-specific risks, contractual protections, and regulatory compliance. Outputs a vendor risk scorecard with a go/no-go recommendation. Two modes: quick triage (5-minute assessment) and deep due diligence. Use when evaluating AI tools for procurement, vendor due diligence, or third-party AI risk assessment.
+---
+
 # Vendor AI Risk
 
 **Skill Name:** vendor-ai-risk  
