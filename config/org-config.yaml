@@ -1,0 +1,135 @@
+# Sentinel Stack — Default Organization Configuration
+# Run /sentinel-stack:setup to personalize for your organization.
+# This file is safe to edit directly. It drives all 11 governance skills.
+
+---
+# Company Identity
+company:
+  name: "Your Company"
+  domain: "your-company.com"
+  industry: "technology"
+  description: "A technology company"
+  jurisdiction: "US"
+  hq_location: "United States"
+
+# Data Loss Prevention
+dlp:
+  industry_pack: "default"
+  alert_threshold: 40
+  block_threshold: 80
+  redact_secrets: true
+  custom_patterns: []
+
+# Guardrails
+guardrails:
+  policies_enabled:
+    policy_1_no_client_data: true
+    policy_2_privacy_data: true
+    policy_3_four_eyes_review: true
+  admin_contact: "compliance-team@your-company.com"
+  escalation_contact: "compliance-team@your-company.com"
+  approvers:
+    finance:
+      primary: "CFO"
+      escalation: "CEO"
+    legal:
+      primary: "General Counsel"
+      escalation: "CEO"
+    hr:
+      primary: "Chief People Officer"
+      escalation: "CEO"
+    production:
+      primary: "VP Engineering"
+      escalation: "CTO"
+
+# AI Governance
+ai_governance:
+  risk_appetite: "moderate"
+  prohibited_uses:
+    - "real-time_biometric_identification"
+    - "social_scoring"
+    - "automated_individual_profiling"
+    - "employee_surveillance"
+  transparency_requirements:
+    high_risk: ["user_disclosure", "explainability", "human_appeal"]
+    limited_risk: ["user_disclosure", "documentation"]
+    minimal_risk: []
+  oversight_levels:
+    high_risk: "dual_human_review"
+    limited_risk: "documented_review"
+    minimal_risk: "monitoring_only"
+  high_risk_approvers:
+    - role: "Chief Information Officer"
+      authority: "Data handling and security"
+    - role: "General Counsel"
+      authority: "Regulatory and legal risk"
+
+# Compliance Frameworks
+compliance:
+  frameworks:
+    - "SOC2"
+  optional_frameworks:
+    - "ISO27001"
+    - "GDPR"
+    - "NIST_CSF"
+  retention_days: 2555
+  critical_retention_days: 3650
+  annual_audit: true
+  quarterly_risk_review: true
+  monthly_compliance_report: false
+
+# Audit Trail
+audit_trail:
+  retention_days: 2555
+  retention_critical_days: 3650
+  archive_after_days: 365
+  event_retention:
+    incident_reported: 3650
+    dlp_scan: 2555
+    guardrail_decision: 2555
+    config_changed: 730
+  alerts_enabled: true
+  alert_contacts:
+    critical: "compliance-team@your-company.com"
+    high: "compliance-team@your-company.com"
+
+# Data Classification
+data_classification:
+  client_data:
+    examples: ["customer names", "account identifiers", "customer-specific data"]
+    handling_requirement: "never_share_with_external_ai"
+  personal_data:
+    examples: ["employee names", "salaries", "performance ratings"]
+    handling_requirement: "minimize_use_in_ai"
+  financial_data:
+    examples: ["revenue", "expenses", "bank accounts"]
+    handling_requirement: "never_share_without_anonymization"
+  legal_data:
+    examples: ["contracts", "NDAs", "intellectual property"]
+    handling_requirement: "sensitive_review_required"
+  internal_data:
+    examples: ["strategy", "roadmaps", "internal metrics"]
+    handling_requirement: "internal_only"
+
+# Risk Management
+risk_management:
+  risk_assessment_frequency: "quarterly"
+  risk_acceptance_authority: "Compliance Officer"
+  risk_acceptance_max_score: 9
+  escalation_score_high: 16
+  escalation_score_medium: 9
+
+# Integrations
+integrations:
+  siem_enabled: false
+  siem_platform: ""
+  incident_tracking_enabled: false
+  incident_tracking_system: ""
+  compliance_automation_enabled: false
+
+# Development
+development:
+  apply_guardrails_in_dev: false
+  apply_dlp_in_dev: true
+  allow_sandbox_testing: true
+  sandbox_data_requirements: "anonymized_only"
