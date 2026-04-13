@@ -1,8 +1,9 @@
 {
   "name": "sentinel-stack",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "AI governance toolkit — DLP scanning, data guardrails, risk register, compliance evidence, audit trail, and EU AI Act classification embedded in your workflow.",
   "skills": [
+    "skills/setup",
     "skills/guardrails",
     "skills/dlp-engine",
     "skills/ai-governance",
