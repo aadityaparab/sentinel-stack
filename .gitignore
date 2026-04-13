@@ -1,6 +1,3 @@
-# Org-specific configuration (contains company details)
-config/org-config.yaml
-
 # OS files
 .DS_Store
 Thumbs.db
