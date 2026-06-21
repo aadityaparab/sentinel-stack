@@ -10,6 +10,19 @@ Works with **Claude, GPT-4, Gemini, Copilot, Cursor**, and any model that reads 
 
 ---
 
+### 🛡️ Part of the Sentinel Stack family
+
+This repo is the **skills layer**. Companion tools (each its own repo):
+
+| Tool | What it does | Status |
+| --- | --- | --- |
+| [**Warden**](https://github.com/aadityaparab/sentinel-warden) · `sentinel-warden` | Firewall that scans agent skills, MCP servers & rules files for prompt injection, exfiltration & tool poisoning **before you install**. | ✅ Live |
+| **Act** · `sentinel-act` | EU AI Act readiness pack — risk-tier classifier + conformity docs. | 🚧 Soon |
+| **MCP Gateway** · `sentinel-mcp` | Runtime policy + DLP + audit on live MCP tool calls. | 🗺️ Planned |
+| **Skills** · this repo | 11 markdown governance skills for Claude, GPT, Gemini, Copilot, Cursor. | ✅ You're here |
+
+---
+
 ## The Problem
 
 Every company using AI is sitting on a ticking compliance clock.
