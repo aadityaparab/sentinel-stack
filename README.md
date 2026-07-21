@@ -2,7 +2,7 @@
 
 **Open-source AI governance for every LLM.**
 
-10 specialized agents that embed DLP, EU AI Act compliance, and real-time audit evidence into your AI workflows — so compliance happens automatically, not after the fact.
+12 specialized skills that embed DLP, EU AI Act compliance, and real-time audit evidence into your AI workflows — so compliance happens automatically, not after the fact.
 
 Works with **Claude, GPT-4, Gemini, Copilot, Cursor**, and any model that reads markdown.
 
@@ -17,9 +17,9 @@ This repo is the **skills layer**. Companion tools (each its own repo):
 | Tool | What it does | Status |
 | --- | --- | --- |
 | [**Warden**](https://github.com/aadityaparab/sentinel-warden) · `sentinel-warden` | Firewall that scans agent skills, MCP servers & rules files for prompt injection, exfiltration & tool poisoning **before you install**. | ✅ Live |
-| **Act** · `sentinel-act` | EU AI Act readiness pack — risk-tier classifier + conformity docs. | 🚧 Soon |
+| [**Act**](https://github.com/aadityaparab/sentinel-act) · `sentinel-act` | EU AI Act readiness pack — risk-tier classifier + conformity docs. | ✅ Live |
 | **MCP Gateway** · `sentinel-mcp` | Runtime policy + DLP + audit on live MCP tool calls. | 🗺️ Planned |
-| **Skills** · this repo | 11 markdown governance skills for Claude, GPT, Gemini, Copilot, Cursor. | ✅ You're here |
+| **Skills** · this repo | 12 markdown governance skills for Claude, GPT, Gemini, Copilot, Cursor. | ✅ You're here |
 
 ---
 
@@ -42,7 +42,7 @@ You don't "do GRC" separately. It happens because your AI workflows run through 
 
 ---
 
-## The 11 Skills
+## The 12 Skills
 
 ### Always-On Protection
 | Skill | What it does |
@@ -70,10 +70,11 @@ You don't "do GRC" separately. It happens because your AI workflows run through 
 | **decision-audit** | Audits governance decisions for data quality, logical consistency, and strategic alignment. Validates that risk assessments are evidence-based. Flags assumptions and gaps. Useful for documenting why AI governance decisions were made the way they were. |
 | **first-principles** | Structured problem decomposition from fundamental assumptions. Useful for policy design, risk modeling, and evaluating whether existing controls address the actual risk or just the perceived one. |
 
-### Efficiency
+### Setup & Efficiency
 
 | Skill | What it does |
 |-------|-------------|
+| **setup** | Re-runnable 6-question wizard (`/sentinel-stack:setup`) that tailors every other skill to your organisation: company and domain, industry, jurisdiction, compliance frameworks, AI risk appetite, and escalation contact. Writes `config/org-config.yaml`, updating only the fields it owns and leaving the rest untouched. |
 | **caveman** | Always-on token-efficient mode. Compresses conversational prose ~65–75% (status updates, explanations, tool preambles) while keeping policies, risk register entries, audit logs, compliance evidence, DLP classifications, AI risk tiers, code, and regulation citations at full audit-grade fidelity. Adapted from [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman) (MIT). Disable per-session with "verbose" or "normal mode". |
 
 ---

@@ -1,6 +1,6 @@
 # Sentinel Stack — Claude Cowork Setup
 
-Sentinel Stack ships as a native Claude plugin. Once installed, all 11 skills are available in Cowork with `/sentinel-stack:skill-name` syntax.
+Sentinel Stack ships as a native Claude plugin. Once installed, all 12 skills are available in Cowork with `/sentinel-stack:skill-name` syntax.
 
 ## Install
 
@@ -17,7 +17,7 @@ Sentinel Stack ships as a native Claude plugin. Once installed, all 11 skills ar
 
 5. Find **sentinel-stack** in the catalog and click **Install**
 
-All 11 skills load automatically. No zip needed.
+All 12 skills load automatically. No zip needed.
 
 Or from the Claude Code CLI:
 
@@ -50,6 +50,7 @@ After install, invoke skills with `/sentinel-stack:skill-name`:
 | Vendor AI Risk | `/sentinel-stack:vendor-ai-risk` | Third-party AI tool evaluation |
 | Decision Audit | `/sentinel-stack:decision-audit` | Governance decision quality review |
 | First Principles | `/sentinel-stack:first-principles` | Novel governance reasoning |
+| Setup | `/sentinel-stack:setup` | Tailor the skills to your org (industry, jurisdiction, frameworks) |
 | Caveman | `/sentinel-stack:caveman` | Token-efficient mode |
 
 ## Always-On Guardrails in Cowork
