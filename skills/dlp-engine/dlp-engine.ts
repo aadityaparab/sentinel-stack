@@ -8,7 +8,7 @@
  * See SKILL.md for documentation.
  */
 
-import { scanForPatterns, redactMatches, type PatternDefinition, type PatternMatch } from './dlp-patterns'
+import { scanForPatterns, redactMatches, type PatternDefinition, type PatternMatch } from './dlp-patterns.js'
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 

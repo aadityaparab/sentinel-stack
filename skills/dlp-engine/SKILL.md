@@ -117,10 +117,29 @@ The DLP engine provides the scoring backend for the guardrails skill. When the g
 
 ## TypeScript Reference Implementation
 
-The `dlp-engine.ts` file in this directory provides a pure-function TypeScript implementation of the scoring engine. It exports:
+Two files in this directory provide a runnable, zero-dependency implementation:
+
+```bash
+npm install   # typescript + @types/node only
+npm test      # builds, then runs the engine tests
+```
+
+`dlp-engine.ts` — the scoring engine. It exports:
 
 - `scoreSensitivity()` — Main entry point. Takes content, pattern definitions, industry patterns, user baseline, and event metadata. Returns a `DlpScanResult` with score, detections, action, and optional cleaned content.
 - `determineAction()` — Score-to-action mapping with configurable thresholds.
+
+`dlp-patterns.ts` — Tier 1. It exports:
+
+- `DEFAULT_PATTERNS` — the ten default patterns documented above, as `PatternDefinition[]`
+- `scanForPatterns(content, patterns)` — returns one `PatternMatch` per pattern that hit, with the distinct matched values attached
+- `redactMatches(content, matches)` — replaces values from `redact`-action matches with `[REDACTED:<pattern_id>]`
+- `luhn(value)` — the card-number check, so arbitrary long digit runs are not reported as cards
+
+Note that `block` takes precedence over `redact`: content scoring at or above
+`block_threshold` (default 85) is blocked outright rather than redacted, so a
+critical pattern such as an AWS key blocks, while a high-severity one such as a
+JWT is redacted and allowed through.
 
 Key types:
 - `Detection` — A single finding (pattern, industry, or behavioral) with severity and details

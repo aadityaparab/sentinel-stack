@@ -1,0 +1,20 @@
+{
+  "name": "sentinel-stack",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Open-source AI governance for every LLM. The toolkit ships as markdown skills; this package only builds and tests the DLP scoring engine reference implementation.",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
