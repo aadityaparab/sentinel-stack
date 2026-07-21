@@ -138,6 +138,38 @@ User: "Create an Acceptable Use Policy for our company"
 → Outputs: Markdown + DOCX ready for approval
 ```
 
+### Layer 5: Meta (Configuration and Output)
+
+These two shape how the other ten behave, rather than performing governance
+work themselves:
+
+- **setup** — Tailor every skill to the organization
+- **caveman** — Compress conversational output, never audit-grade content
+
+**Triggering logic:**
+- setup — Explicit invocation (`/sentinel-stack:setup`), or first run when
+  `config/org-config.yaml` is missing
+- caveman — Always on by default; disabled per-session with "verbose" or
+  "normal mode"
+
+**Example flow:**
+```
+User: "/sentinel-stack:setup"
+↓ Setup skill
+→ Asks 6 questions (company, industry, jurisdiction, frameworks,
+  risk appetite, escalation contact)
+→ Rewrites only the fields it owns in config/org-config.yaml, leaving
+  data_classification, risk_management and integrations untouched
+→ Every other skill picks up the new config on its next invocation
+```
+
+**Why caveman belongs in the architecture and not in a style guide:** it ships
+an explicit carve-out list. Policy text, risk register entries, audit records,
+compliance evidence, DLP classifications, AI risk tiers, code and regulation
+citations are never compressed. The rule is that if an auditor or regulator
+might read it, it stays at full fidelity — which makes compression a
+governance decision, not a formatting one.
+
 ---
 
 ## Control Flow

@@ -5,6 +5,10 @@ This document maps skill dependencies, triggering conditions, and common workflo
 ## Dependency Graph
 
 ```
+                          SETUP
+                   (writes the config)
+                            |
+                            v
                          CONFIG
                       org-config.yaml
                             |
@@ -20,6 +24,11 @@ This document maps skill dependencies, triggering conditions, and common workflo
      |         |         |                        |
 RISK-REGISTER | COMPLIANCE- | AUDIT-TRAIL      POLICY-
               EVIDENCE                         DRAFTER
+                            |
+                            v
+                         CAVEMAN
+            (compresses prose on the way out;
+             audit-grade content passes through)
 ```
 
 ## Core Skills
@@ -276,6 +285,53 @@ These support human decision-making (on-demand).
 **Downstream Dependencies:**
 - Policy-drafter (novel policies drafted from conclusion)
 - Guardrails (new policies implemented)
+
+---
+
+## Meta Skills
+
+These shape how the other ten skills run. They produce no governance artifacts
+of their own.
+
+### Setup (On-Demand, Re-runnable)
+
+**Purpose:** Tailor every other skill to the organization
+
+**Trigger:** `/sentinel-stack:setup`, or first run when `config/org-config.yaml` is absent
+
+**Inputs:**
+- Six answers: company and domain, industry, jurisdiction, compliance
+  frameworks, AI risk appetite, escalation contact
+
+**Outputs:**
+- Updated `config/org-config.yaml` — only the fields it owns. Sections it does
+  not ask about (`data_classification`, `risk_management`, `integrations`) are
+  left untouched.
+
+**Downstream Dependencies:**
+- Every skill that reads `org-config.yaml` — that is, all of them
+- Guardrail policies and DLP thresholds change on the next invocation
+
+---
+
+### Caveman (Always-On)
+
+**Purpose:** Cut token cost on conversational prose without weakening the record
+
+**Trigger:** Always on by default; disabled per-session with "verbose" or "normal mode"
+
+**Inputs:**
+- The response any other skill is about to produce
+
+**Outputs:**
+- Compressed: status updates, explanations, tool preambles, summaries
+- **Never compressed:** policy text, risk register entries, audit records,
+  compliance evidence, DLP classifications, AI risk tiers, code, file paths,
+  URLs, regulation citations, quoted user content
+
+**Downstream Dependencies:**
+- None. It is the last layer before output, and deliberately cannot alter
+  anything an auditor or regulator would read.
 
 ---
 

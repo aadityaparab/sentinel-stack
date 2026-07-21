@@ -201,7 +201,9 @@ sentinel-stack/
 │   ├── policy-drafter/          # AI policy templates
 │   ├── vendor-ai-risk/          # Third-party AI assessment
 │   ├── decision-audit/          # Governance decision validation
-│   └── first-principles/        # Problem decomposition
+│   ├── first-principles/        # Problem decomposition
+│   ├── setup/                   # 6-question org configuration wizard
+│   └── caveman/                 # Token-efficient output, audit-grade carve-outs
 ├── scripts/
 │   └── setup.sh
 └── docs/
