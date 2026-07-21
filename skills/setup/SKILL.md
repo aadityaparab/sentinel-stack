@@ -121,6 +121,6 @@ Sentinel Stack configured for [company.name].
   Risk appetite: [ai_governance.risk_appetite]
   Escalation:  [guardrails.escalation_contact]
 
-All 11 governance skills are now using your org config.
+All 12 governance skills are now using your org config.
 Run /sentinel-stack:setup again anytime to update these settings.
 ```

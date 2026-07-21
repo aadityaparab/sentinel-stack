@@ -1,6 +1,6 @@
 # Sentinel Stack — Default Organization Configuration
 # Run /sentinel-stack:setup to personalize for your organization.
-# This file is safe to edit directly. It drives all 11 governance skills.
+# This file is safe to edit directly. It drives all 12 governance skills.
 
 ---
 # Company Identity
